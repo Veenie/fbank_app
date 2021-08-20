@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_012736) do
+ActiveRecord::Schema.define(version: 2021_08_20_013422) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "description"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_012736) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "amount", precision: 8, scale: 2
     t.index ["user_id"], name: "index_transactions_on_user_id"
   end
 
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_012736) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.decimal "amount", precision: 8, scale: 2, default: "500.0"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
