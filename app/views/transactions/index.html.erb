@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_transaction_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    New Transaction
+  <% end %>
+  <h1>Listing transactions</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Description</th>
+            <th>Time</th>
+            <th>User</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @transactions) do |transaction| %>
+            <td><%= transaction.description %></td>
+            <td><%= transaction.time %></td>
+            <td><%= transaction.user %></td>
+            <td><%= link_to 'Show', transaction %></td>
+        <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
+        <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
