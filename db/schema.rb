@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_013422) do
+ActiveRecord::Schema.define(version: 2021_08_20_015833) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "description"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 2021_08_20_013422) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.decimal "amount", precision: 8, scale: 2, default: "500.0"
+    t.boolean "admin", default: false
+    t.boolean "banker", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
